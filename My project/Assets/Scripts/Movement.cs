@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     public float speed;
     public float _dashSpeed;
     public float _dashTime;
+    public Vector3 movementDirection = new Vector3();
 
     private CharacterController characterController;
 
@@ -20,17 +21,12 @@ public class Movement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+        movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         float magnitude = movementDirection.magnitude * speed;
 
         movementDirection.Normalize();
 
         characterController.SimpleMove(movementDirection * magnitude);
-
-         if (Input.GetButtonDown("Jump"))
-        {
-            // dash
-        }
         
     }
 
