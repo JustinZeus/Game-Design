@@ -61,9 +61,9 @@ public class ShootController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            var projectile = Instantiate(projectilePrefab, transform.position + direction.normalized, Quaternion.identity);
-            projectile.transform.forward = aimedTransform.forward;
-            projectile.GetComponent<Rigidbody>().MovePosition(transform.position + direction * Time.deltaTime * 5f);
+            var projectile = Instantiate(projectilePrefab, transform.position + Vector3.Scale(direction.normalized,  new Vector3(1.0f,1.0f,1.0f)), Quaternion.identity);
+            var rb = projectile.GetComponent<Rigidbody>();
+            rb.velocity = Vector3.Scale(direction.normalized, new Vector3(8.0f,8.0f,8.0f));
         }
     }
 
