@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public bool isDashing;
     public bool isCharging;
+
+    public Text UIcharges;
 
     private int dashAttempts;
     private float dashStartTime;
@@ -19,35 +22,32 @@ public class PlayerController : MonoBehaviour
         movement = GetComponent<Movement>();
         characterController = GetComponent<CharacterController>();
         dashChargeTime = 2.0f;
+        dashAttempts = 3;
     }
 
     void Update()
     {
         HandleDash();
+        UIcharges.text = dashAttempts.ToString();
     }
 
     void HandleDash()
     {
-        if(dashAttempts > 0)
+        if(dashAttempts < 3)
         {
             if(Time.time - chargeStartTime >= dashChargeTime){
-                dashAttempts--;
-                if(dashAttempts == 0)
-                {
-                    chargeStartTime = 0;
+                dashAttempts++;
+                chargeStartTime = Time.time;
+                if(dashAttempts == 3){
                     isCharging = false;
-                } else
-                {
-                    chargeStartTime = Time.time;
-                }
+                } 
             }
         }
 
         bool isTryingToDash = Input.GetButtonDown("Jump");
-
         if (isTryingToDash && !isDashing)
         {
-            if (dashAttempts <= 2)
+            if (dashAttempts > 0)
             {
                 OnStartDash();
             }
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         isDashing = true;
         dashStartTime = Time.time;
-        dashAttempts += 1;
+        dashAttempts -= 1;
     }
 
     void OnEndDash()

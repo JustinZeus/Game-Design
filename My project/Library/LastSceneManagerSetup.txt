@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Machine Pistol/Scenes/MachinePistol.unity
+- path: Assets/Scenes/floor.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
