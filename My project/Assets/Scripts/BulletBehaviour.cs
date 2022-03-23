@@ -20,7 +20,7 @@ public class BulletBehaviour : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
       if(collision.collider.gameObject.tag == "Enemies"){
-        Destroy(collision.collider.gameObject);
+            Destroy(collision.collider.gameObject);
       }
       Destroy(this.gameObject);
     }
