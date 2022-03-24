@@ -3,19 +3,19 @@ using UnityEngine;
 public class SpiderController : MonoBehaviour
 {
     public Transform target;
-    public GameObject player;
+    //public GameObject player;
 
-    public int health;
     public int speed;
+    public float damage;
 
     public bool triggered;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         triggered = false;
-        health = 2;
         speed = 5;
+
     }
 
     // Update is called once per frame
@@ -33,18 +33,16 @@ public class SpiderController : MonoBehaviour
         }
 
 
-        if(health <= 0) Destroy(this.gameObject);
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
+            collision.gameObject.GetComponent<PlayerHealth>().HitPlayer(damage);
             //Destroy(collision.collider.gameObject);
             Destroy(this.gameObject);
         }
         
     }
-    public void GetHit(int damage){
-        health -= damage;
-    }
+    
 }
