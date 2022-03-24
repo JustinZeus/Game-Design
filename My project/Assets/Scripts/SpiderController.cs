@@ -6,7 +6,7 @@ public class SpiderController : MonoBehaviour
     //public GameObject player;
 
     public int speed;
-    public float damage;
+    public int damage;
 
     public bool triggered;
     
