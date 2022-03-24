@@ -5,23 +5,25 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     float spawntime;
+    public float damage;
     // Start is called before the first frame update
     void Start()
     {
-      spawntime = Time.time;
+        spawntime = Time.time;
+        damage = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-      if((Time.time - spawntime) > 10f) Destroy(this.gameObject);
+        if((Time.time - spawntime) > 10f) Destroy(this.gameObject);
     }
 
     void OnCollisionEnter(Collision collision)
     {
-      if(collision.collider.gameObject.tag == "Enemies"){
-        Destroy(collision.collider.gameObject);
-      }
-      Destroy(this.gameObject);
+        if(collision.gameObject.tag == "Enemies"){
+            collision.gameObject.GetComponent<EnemyHealth>().HitEnemy(damage);
+        }
+        Destroy(this.gameObject);
     }
 }
