@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
        UIhealth.text = current_health.ToString();
        if(Input.GetKeyDown("g"))
        {
-           //current_health -= 2;
+           current_health -= 2;
        }
     }
 

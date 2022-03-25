@@ -34,8 +34,6 @@ public class SpiderController : MonoBehaviour
             transform.LookAt(targetPos);
             transform.position += transform.forward*speed*Time.deltaTime;
         }
-
-
     }
     void OnCollisionEnter(Collision collision)
     {
