@@ -8,7 +8,6 @@ public class PlayerStats : MonoBehaviour
     public int health;
     public int current_health; 
     public float movement_speed;
-    public Text UIhealth;
 
     public GameObject globalStatic;
     public GlobalStats globalStats;
@@ -22,7 +21,6 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       UIhealth.text = current_health.ToString();
        if(Input.GetKeyDown("g"))
        {
            current_health -= 2;
