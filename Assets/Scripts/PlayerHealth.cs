@@ -23,5 +23,6 @@ public class PlayerHealth : MonoBehaviour
     public void HitPlayer(int damage)
     {
         stats.current_health -= damage;
+        stats.PushStats();
     }
 }

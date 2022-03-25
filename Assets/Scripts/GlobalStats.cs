@@ -7,11 +7,14 @@ public class GlobalStats : MonoBehaviour
     public int current_health;
     public float movement_speed;
 
+    public int gunType;
+
     void start()
     {
         health = 10;
         current_health = health;
         movement_speed = 7.0f;
+        gunType = 1;
     }
 
     void Awake()

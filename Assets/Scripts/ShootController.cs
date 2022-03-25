@@ -10,34 +10,39 @@ public class ShootController : MonoBehaviour
 
 
     private Camera mainCamera;
-    public enum GunType { Semi, Auto, Sniper };
-    public GunType gunType;
+    public int gunType;
 
     public float bulletSpeed = 12.0f;
     public float timeBetweenShots;
     private float nextPossibleShootTime;
 
+    public GameObject globalStatic;
+    public GlobalStats globalStats;
 
     void Start()
     {
         mainCamera = Camera.main;
         aimedTransform = transform;
+
+        globalStatic = GameObject.Find("GlobalStatic");
+        globalStats = globalStatic.GetComponent<GlobalStats>();
+        gunType = globalStats.gunType;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gunType == GunType.Semi)
+        if (gunType == 1)
         {
             timeBetweenShots = 0.5f;
             bulletSpeed = 18.0f;
         }
-        else if (gunType == GunType.Auto)
+        else if (gunType == 2)
         {
             timeBetweenShots = 0.25f;
             bulletSpeed = 14.0f;
         }
-        else if (gunType == GunType.Sniper)
+        else if (gunType == 3)
         {
             timeBetweenShots = 1.0f;
             bulletSpeed = 35.0f;
@@ -47,6 +52,23 @@ public class ShootController : MonoBehaviour
             Shoot();
         else if (Input.GetMouseButton(0))
             ShootContinuous();
+    }
+
+    public void NextGun()
+    {
+        switch(gunType)
+        {
+            case 1:
+                gunType = 2;
+                break;
+            case 2:
+                gunType = 3;
+                break;
+            case 3:
+                gunType = 1;
+                break;
+        }
+        globalStats.gunType = gunType;
     }
 
     private void Aim()
@@ -96,7 +118,7 @@ public class ShootController : MonoBehaviour
 
     private void ShootContinuous()
     {
-        if (gunType == GunType.Auto)
+        if (gunType == 2)
             Shoot();
     }
 
