@@ -3,7 +3,7 @@ using UnityEngine;
 public class SpiderController : MonoBehaviour
 {
     public Transform target;
-    //public GameObject player;
+    public GameObject player;
 
     public int speed;
     public int damage;
@@ -18,6 +18,8 @@ public class SpiderController : MonoBehaviour
         triggered = false;
         speed = 5;
         spiderAnimator = this.GetComponent<Animator>();
+        player = GameObject.Find("Player");
+        target = player.transform;
     }
 
     // Update is called once per frame
