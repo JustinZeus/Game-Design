@@ -86,19 +86,9 @@ public class ShootController : MonoBehaviour
     {
         if (CanShoot())
         {
-            if (gunType == GunType.Sniper)
-            {
-                var projectile = Instantiate(projectilePrefab, transform.position + Vector3.Scale(direction.normalized, new Vector3(1.0f, 1.0f, 1.0f)), Quaternion.identity);
-                var rb = projectile.GetComponent<Rigidbody>();
-                rb.velocity = Vector3.Scale(direction.normalized, new Vector3(bulletSpeed, bulletSpeed, bulletSpeed));
-
-            }
-            else
-            {
-                var projectile = Instantiate(projectilePrefab, transform.position + Vector3.Scale(direction.normalized, new Vector3(1.0f, 1.0f, 1.0f)), Quaternion.identity);
-                var rb = projectile.GetComponent<Rigidbody>();
-                rb.velocity = Vector3.Scale(direction.normalized, new Vector3(bulletSpeed, bulletSpeed, bulletSpeed));
-            }
+            var projectile = Instantiate(projectilePrefab, transform.position + Vector3.Scale(direction.normalized, new Vector3(1.0f, 1.0f, 1.0f)), Quaternion.identity);
+            var rb = projectile.GetComponent<Rigidbody>();
+            rb.velocity = Vector3.Scale(direction.normalized, new Vector3(bulletSpeed, bulletSpeed, bulletSpeed));
 
             nextPossibleShootTime = Time.time + timeBetweenShots;
         }
