@@ -9,13 +9,15 @@ public class SpiderController : MonoBehaviour
     public int damage;
 
     public bool triggered;
+
+    [SerializeField] private Animator spiderAnimator;
     
     // Start is called before the first frame update
     void Start()
     {
         triggered = false;
         speed = 5;
-
+        spiderAnimator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class SpiderController : MonoBehaviour
         if(!triggered) {
             if(Vector3.Distance(transform.position,target.position) <= 7) {
                 triggered = true;
+                spiderAnimator.Play("Running");
             }
         } else{
             Vector3 targetPos = new Vector3(target.position.x, transform.position.y,target.position.z);
@@ -40,9 +43,16 @@ public class SpiderController : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerHealth>().HitPlayer(damage);
             //Destroy(collision.collider.gameObject);
-            Destroy(this.gameObject);
+            DestroyAnimated();          
         }
         
+    }
+
+    public void DestroyAnimated()
+    {
+        speed = 0;
+        spiderAnimator.Play("Death");
+        Destroy(this.gameObject, 0.5f);
     }
     
 }
