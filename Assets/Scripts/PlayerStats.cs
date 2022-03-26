@@ -11,10 +11,16 @@ public class PlayerStats : MonoBehaviour
 
     public GameObject globalStatic;
     public GlobalStats globalStats;
+
+    public ShootController shootController;
+    public int gunType;
+
     // Start is called before the first frame update
     void Start()
     {
+        globalStatic = GameObject.Find("GlobalStatic");
         globalStats = globalStatic.GetComponent<GlobalStats>();
+        shootController = GetComponent<ShootController>();
         PullStats();
     }
 
@@ -24,14 +30,16 @@ public class PlayerStats : MonoBehaviour
        if(Input.GetKeyDown("g"))
        {
            current_health -= 2;
+           PushStats();
        }
     }
 
-    void PushStats()
+    public void PushStats()
     {
         globalStats.health = health;
         globalStats.current_health = current_health;
         globalStats.movement_speed = movement_speed;
+        globalStats.gunType = gunType;
     }
 
     void PullStats()
@@ -39,6 +47,8 @@ public class PlayerStats : MonoBehaviour
         health = globalStats.health;
         current_health = globalStats.current_health;
         movement_speed = globalStats.movement_speed;
+        gunType = globalStats.gunType;
+        shootController.gunType = gunType;
     }
 
     public void UpdateStats(int _health, int _extra_health, float _movement_speed)
