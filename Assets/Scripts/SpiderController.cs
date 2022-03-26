@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SpiderController : MonoBehaviour
 {
-    public Transform target;
-    public GameObject player;
+    private Transform target;
+    private GameObject player;
 
     public int speed;
     public int damage;
