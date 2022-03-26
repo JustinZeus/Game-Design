@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Floor 1 Hard.unity
     guid: 1679816964bec4040b65d54b1efdb95a
   - enabled: 1
-    path: Assets/Scenes/Floor 1 Medium 1.unity
+    path: Assets/Scenes/Floor 1 Medium.unity
     guid: c5d76d491527ba940b09ab531753d91d
   - enabled: 1
     path: Assets/Scenes/floor 2 medium.unity
