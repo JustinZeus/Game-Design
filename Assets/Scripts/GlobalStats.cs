@@ -13,15 +13,15 @@ public class GlobalStats : MonoBehaviour
     {
         if(gunType == 1)
         {
-            return 1.0f;
+            return 2.0f;
         }
         else if(gunType == 2)
         {
-            return 0.5f;
+            return 1.0f;
         }
         else if(gunType == 3)
         {
-            return 3.0f;
+            return 5.0f;
         }
         else
         {

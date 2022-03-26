@@ -2775,7 +2775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enterText: {fileID: 85191507}
-  levelToLoad: floor
+  levelToLoad: Floor 1 Hard
 --- !u!136 &779987996
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2943,7 +2943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enterText: {fileID: 65494111}
-  levelToLoad: floor
+  levelToLoad: Floor 1 Easy
 --- !u!136 &789619101
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3388,6 +3388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f361c2353a30cb84eb12fa13bb9d3b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalStatic: {fileID: 0}
 --- !u!114 &1009196746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3928,7 +3929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enterText: {fileID: 1971758089}
-  levelToLoad: floor
+  levelToLoad: Floor 1 medium
 --- !u!136 &1145111402
 CapsuleCollider:
   m_ObjectHideFlags: 0
