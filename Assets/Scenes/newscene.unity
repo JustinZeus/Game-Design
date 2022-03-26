@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 970407613}
-  m_IndirectSpecularColor: {r: 0.67401224, g: 0.5194208, b: 0.34727976, a: 1}
+  m_IndirectSpecularColor: {r: 0.6739659, g: 0.51938283, b: 0.34723523, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1774,6 +1774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDashing: 0
   isCharging: 0
+  UIcharges: {fileID: 0}
 --- !u!23 &104672319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1849,7 +1850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c2eccf9c615cb4fbcdf04468902b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
   _dashSpeed: 10
   _dashTime: 0.1
   movementDirection: {x: 0, y: 0, z: 0}
@@ -1889,6 +1889,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 100000, guid: 5a7989cc093e9fd45b43766b00610594, type: 3}
   aimedTransform: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
+  gunType: 0
+  bulletSpeed: 12
+  timeBetweenShots: 0
+  globalStatic: {fileID: 0}
+  globalStats: {fileID: 0}
 --- !u!1001 &107808038
 PrefabInstance:
   m_ObjectHideFlags: 0
