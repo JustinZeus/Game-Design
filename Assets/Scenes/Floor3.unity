@@ -4040,7 +4040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enterText: {fileID: 762330180}
-  levelToLoad: Select
+  levelToLoad: BossSelect
 --- !u!65 &415205921
 BoxCollider:
   m_ObjectHideFlags: 0

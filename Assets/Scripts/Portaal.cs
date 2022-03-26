@@ -20,7 +20,7 @@ public class Portaal : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             enterText.SetActive(true);
-            if (Input.GetKeyDown("e"))
+            if (Input.GetKey("e"))
             {
                 SceneManager.LoadScene(levelToLoad);
             }
