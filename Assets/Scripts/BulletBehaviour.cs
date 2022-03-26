@@ -6,11 +6,15 @@ public class BulletBehaviour : MonoBehaviour
 {
     float spawntime;
     public float damage;
+    public GameObject globalStatic;
+    public GlobalStats globalStats;
     // Start is called before the first frame update
     void Start()
     {
+        globalStatic = GameObject.Find("GlobalStatic");
+        globalStats = globalStatic.GetComponent<GlobalStats>();
         spawntime = Time.time;
-        damage = 1;
+        damage = globalStats.gunDamage();
     }
 
     // Update is called once per frame

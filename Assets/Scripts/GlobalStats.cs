@@ -9,6 +9,26 @@ public class GlobalStats : MonoBehaviour
 
     public int gunType;
 
+    public float gunDamage()
+    {
+        if(gunType == 1)
+        {
+            return 1.0f;
+        }
+        else if(gunType == 2)
+        {
+            return 0.5f;
+        }
+        else if(gunType == 3)
+        {
+            return 3.0f;
+        }
+        else
+        {
+            return 1.0f;
+        }
+    }
+
     void start()
     {
         health = 10;
