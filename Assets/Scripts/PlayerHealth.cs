@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     private PlayerStats stats;
+    public GameObject globalStatic;
     // Start is called before the first frame update
     void Start()
     {
         stats = GetComponent<PlayerStats>();
+        globalStatic = GameObject.Find("GlobalStatic");
     }
 
     // Update is called once per frame
@@ -17,7 +19,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if(stats.current_health <= 0)
         {
+            
             Destroy(this.gameObject, 0.5f);
+            Destroy(globalStatic);
 
             SceneManager.LoadScene("Select");
         }
