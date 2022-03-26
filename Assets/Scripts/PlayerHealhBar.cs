@@ -11,7 +11,6 @@ public class PlayerHealhBar : MonoBehaviour
 
     void Start()
     {
-        
         slider.maxValue = stats.health;
         slider.value = stats.current_health;
     }

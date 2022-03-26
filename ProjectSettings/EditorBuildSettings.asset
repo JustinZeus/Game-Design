@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/floor.unity
     guid: c79a797a8ca7b774f8cb5babb492052a
   - enabled: 1
-    path: Assets/Scenes/Floor3.unity
+    path: Assets/Scenes/Floor 2.unity
     guid: b0de0711692b843459ecac0863bcc297
   - enabled: 1
-    path: Assets/Scenes/floor 2.unity
+    path: Assets/Scenes/Boss level.unity
     guid: 12b0762c20bef3e4fac724d03972b073
   - enabled: 1
     path: Assets/Scenes/BossSelect.unity
