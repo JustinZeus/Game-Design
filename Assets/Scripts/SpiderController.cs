@@ -10,14 +10,17 @@ public class SpiderController : MonoBehaviour
 
     public bool triggered;
 
+    private EnemyHealth enemyHealth;
+
     [SerializeField] private Animator spiderAnimator;
     
     // Start is called before the first frame update
     void Start()
     {
+        enemyHealth = GetComponent<EnemyHealth>();
         triggered = false;
         speed = 5;
-        spiderAnimator = this.GetComponent<Animator>();
+        spiderAnimator = GetComponent<Animator>();
         player = GameObject.Find("Player");
         target = player.transform;
     }
@@ -26,16 +29,26 @@ public class SpiderController : MonoBehaviour
     void Update()
     {
         if(!triggered) {
+            if (enemyHealth.current_health < enemyHealth.health)
+                triggered = true;
+
             if(Vector3.Distance(transform.position,target.position) <= 7) {
                 triggered = true;
-                spiderAnimator.Play("Running");
             }
         } else{
+            spiderAnimator.Play("Running");
+
             Vector3 targetPos = new Vector3(target.position.x, transform.position.y,target.position.z);
             //transform.LookAt(target);
             transform.LookAt(targetPos);
             transform.position += transform.forward*speed*Time.deltaTime;
         }
+
+        if(enemyHealth.current_health <= 0)
+        {
+            DestroyAnimated();
+        }
+
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -43,7 +56,7 @@ public class SpiderController : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerHealth>().HitPlayer(damage);
             //Destroy(collision.collider.gameObject);
-            DestroyAnimated();          
+            //DestroyAnimated();          
         }
         
     }

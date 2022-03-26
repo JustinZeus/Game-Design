@@ -32,9 +32,6 @@ public class HealthPack : MonoBehaviour
         {
           other.GetComponent<PlayerStats>().UpdateStats(-1, 3, -1);
           Destroy(gameObject);
-        } else
-        {
-
         }
     }
 }

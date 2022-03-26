@@ -7,8 +7,10 @@ public class EnemyHealth : MonoBehaviour
 {
     // Start is called before the first frame update
     public float health;
-    private float current_health;
+    public float current_health;
+
     public Slider slider;
+
     void Start()
     {
         current_health = health;
@@ -17,10 +19,6 @@ public class EnemyHealth : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (current_health <= 0) Destroy(gameObject);
-    }
     public void HitEnemy(float damage)
     {
         current_health -= damage;

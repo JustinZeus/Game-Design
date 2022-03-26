@@ -18,6 +18,7 @@ public class SpiderBoss : MonoBehaviour
         interval = 10.0f;
         prevTime = Time.time;
         spiderController = GetComponent<SpiderController>();
+        spiderController.triggered = true;
         jumping = false;
         JumpAttack();
     }
