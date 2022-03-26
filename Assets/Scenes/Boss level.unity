@@ -6741,6 +6741,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: spider_Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1145861857351818349, guid: 2dd30c13919212b4e97b54b217dd21dd, type: 3}
+      propertyPath: health
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145861857351818351, guid: 2dd30c13919212b4e97b54b217dd21dd, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1145861857351818351, guid: 2dd30c13919212b4e97b54b217dd21dd, type: 3}
       propertyPath: target
       value: 
