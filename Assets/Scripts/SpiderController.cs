@@ -29,15 +29,12 @@ public class SpiderController : MonoBehaviour
     void Update()
     {
         if(!triggered) {
-            if (enemyHealth.current_health < enemyHealth.health)
-                triggered = true;
 
-            if(Vector3.Distance(transform.position,target.position) <= 7) {
+            if(Vector3.Distance(transform.position,target.position) <= 7 | enemyHealth.current_health < enemyHealth.health) {
                 triggered = true;
+                spiderAnimator.Play("Running");
             }
         } else{
-            spiderAnimator.Play("Running");
-
             Vector3 targetPos = new Vector3(target.position.x, transform.position.y,target.position.z);
             //transform.LookAt(target);
             transform.LookAt(targetPos);
