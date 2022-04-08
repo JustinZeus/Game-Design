@@ -47,4 +47,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/begin floor.unity
     guid: 2745954cdaa49b944bba553102f447fb
+  - enabled: 1
+    path: Assets/Scenes/secret1.unity
+    guid: c9c73eb7d03c2164aad2c9cc00004e76
+  - enabled: 1
+    path: Assets/Scenes/secret2.unity
+    guid: d0fa9770d6093bf4e94ba319284a123c
   m_configObjects: {}
