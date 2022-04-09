@@ -19,6 +19,11 @@ public class ShootController : MonoBehaviour
     public GameObject globalStatic;
     public GlobalStats globalStats;
 
+    public GameObject pistol;
+    public GameObject uzi;
+    public GameObject sniper;
+
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -27,6 +32,21 @@ public class ShootController : MonoBehaviour
         globalStatic = GameObject.Find("GlobalStatic");
         globalStats = globalStatic.GetComponent<GlobalStats>();
         gunType = globalStats.gunType;
+
+
+        switch(gunType)
+                {
+            case 1:
+                pistol.SetActive(true);
+                break;
+            case 2:
+                uzi.SetActive(true);
+                break;
+            case 3:
+                sniper.SetActive(true);
+                break;
+        }
+
     }
 
     // Update is called once per frame
@@ -54,18 +74,27 @@ public class ShootController : MonoBehaviour
             ShootContinuous();
     }
 
-    public void NextGun()
+    public void NextGun(int type)
     {
-        switch(gunType)
+        switch(type)
         {
             case 1:
-                gunType = 2;
+                gunType = 1;
+                pistol.SetActive(true);
+                uzi.SetActive(false);
+                sniper.SetActive(false);
                 break;
             case 2:
-                gunType = 3;
+                gunType = 2;
+                pistol.SetActive(false);
+                uzi.SetActive(true);
+                sniper.SetActive(false);
                 break;
             case 3:
-                gunType = 1;
+                gunType = 3;
+                pistol.SetActive(false);
+                uzi.SetActive(false);
+                sniper.SetActive(true);
                 break;
         }
         globalStats.gunType = gunType;

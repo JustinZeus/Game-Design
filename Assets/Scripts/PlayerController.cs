@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        UIcharges = GameObject.Find("Dash").GetComponent<Text>();
         movement = GetComponent<Movement>();
         characterController = GetComponent<CharacterController>();
         dashChargeTime = 2.0f;

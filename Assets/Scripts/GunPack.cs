@@ -11,6 +11,8 @@ public class GunPack : MonoBehaviour
     Vector3 posOffset = new Vector3 ();
     Vector3 tempPos = new Vector3 ();
 
+    public int type;
+
     void Start()
     {
         posOffset = transform.position;
@@ -31,11 +33,8 @@ public class GunPack : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-          other.GetComponent<ShootController>().NextGun();
+          other.GetComponent<ShootController>().NextGun(type);
           Destroy(gameObject);
-        } else
-        {
-
-        }
+        } 
     }
 }

@@ -12,15 +12,24 @@ public class PlayerStats : MonoBehaviour
     public GameObject globalStatic;
     public GlobalStats globalStats;
 
+    public GameObject hatModel;
+
     public ShootController shootController;
     public int gunType;
 
+    public bool hat;
+
     // Start is called before the first frame update
     void Start()
-    {
+    {       
         globalStatic = GameObject.Find("GlobalStatic");
         globalStats = globalStatic.GetComponent<GlobalStats>();
         shootController = GetComponent<ShootController>();
+        hat = globalStats.hatUnlocked;
+        if(hat)
+        {
+            hatModel.SetActive(true);
+        }
         PullStats();
     }
 
